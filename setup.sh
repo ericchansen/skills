@@ -294,19 +294,19 @@ for skill in $(echo "${!SELECTED[@]}" | tr ' ' '\n' | sort); do
     case "$result" in
         created)
             success "$skill"
-            ((created++))
+            ((++created))
             ;;
         exists)
             info "$skill (already linked)"
-            ((existed++))
+            ((++existed))
             ;;
         skipped)
             warn "$skill (skipped - real directory exists)"
-            ((skipped++))
+            ((++skipped))
             ;;
         failed)
             err "$skill (failed to create symlink)"
-            ((failed++))
+            ((++failed))
             ;;
     esac
 done
